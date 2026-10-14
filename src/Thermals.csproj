@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>Thermals</AssemblyName>
+    <RootNamespace>Thermals</RootNamespace>
+    <Version>1.0.0</Version>
+    <Product>Thermals</Product>
+    <AssemblyTitle>Thermals</AssemblyTitle>
+    <Company>Noisewater Labs</Company>
+    <Authors>Noisewater Labs</Authors>
+    <Copyright>© 2026 Noisewater Labs</Copyright>
+    <Description>Lightweight hardware monitor with an on-screen overlay</Description>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\thermals.ico</ApplicationIcon>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+
+    <!-- Keep the footprint small: workstation, non-concurrent GC (no extra background GC thread). -->
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+    <TieredPGO>true</TieredPGO>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Also brings System.Management (used for the System tab), so it isn't referenced separately. -->
+    <PackageReference Include="LibreHardwareMonitorLib" Version="0.9.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\thermals.ico" LogicalName="thermals.ico" />
+  </ItemGroup>
+
+</Project>
